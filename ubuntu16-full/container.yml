@@ -1,0 +1,28 @@
+- hosts: localhost
+  connection: local
+  tasks:
+
+  - name: generating image
+    docker_image:
+      path: .
+      name: "ubuntu16-full"
+      state: present
+      force: true
+
+  - name: generating container
+    docker_container:
+      name: "example"
+      image: "ubuntu16-full"
+      state: started
+      restart: yes
+      restart_policy: always
+      volumes:
+      - "/tmp:/root"
+      # capabilities:
+      # - "SYS_ADMIN"
+      cleanup: yes
+      purge_networks: yes
+      networks:
+      - name: myexample
+        ipv4_address: "172.20.0.10"
+      privileged: yes
