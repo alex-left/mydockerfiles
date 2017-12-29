@@ -3,6 +3,8 @@ ARG ansible_version=2.3.2
 RUN mkdir /workdir
 
 RUN pip install --no-cache-dir \
-ansible==${ansible_version}
+    ansible==${ansible_version} \
+    boto \
+    boto3
 
 WORKDIR /workdir

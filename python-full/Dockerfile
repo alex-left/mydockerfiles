@@ -13,6 +13,8 @@ pyyaml \
 colorama \
 passlib \
 cryptography \
-matplotlib
+matplotlib \
+pandas \
+boto3
 
 WORKDIR /workdir

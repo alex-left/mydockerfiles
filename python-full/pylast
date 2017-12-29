@@ -1,3 +1,10 @@
 #!/bin/bash
 
-docker run --rm -it -v $(pwd):/workdir:ro -u $(id -u):$(id -u) --entrypoint python python-full "$@"
+pyl_param="$(pwd):/workdir:ro"
+
+if [[ $1 == '-w' ]]; then
+  pyl_param="$(pwd):/workdir:rw -u $(id -u):$(id -u)"
+  shift 1
+fi
+
+docker run --rm -it -v ${ipy_param} --entrypoint python python-full "$@"
