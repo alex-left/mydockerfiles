@@ -7,4 +7,4 @@ if [[ $1 == '-w' ]]; then
   shift 1
 fi
 
-docker run --rm -it -v ${ipy_param} --entrypoint python python-full "$@"
+docker run --rm -it -v ${pyl_param} --entrypoint python python-full "$@"
