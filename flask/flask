@@ -1,0 +1,9 @@
+#!/bin/bash
+fparam="$(pwd):/workdir:ro"
+
+if [[ $1 == '-w' ]]; then
+  fparam="$(pwd):/workdir:rw -u $(id -u):$(id -u)"
+  shift 1
+fi
+
+docker run --rm -it -v ${fparam} -p 5000:5000 flask python "$@"
