@@ -22,7 +22,7 @@ or using directly docker
  You must use the "privileged" option for systemd compatibility
 ``` docker run -d --name container-name ubuntu16-full --privileged ```
 or if you want more precision add particular capabilities and read access to cgroups
-``` --cap-add=SYS_ADMIN -v /sys/fs/cgroup:/sys/fs/cgroup:ro '''
+``` --cap-add=SYS_ADMIN -v /sys/fs/cgroup:/sys/fs/cgroup:ro ```
 
 See docker run documentation for more details.
 
