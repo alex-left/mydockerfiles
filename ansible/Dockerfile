@@ -7,4 +7,6 @@ RUN pip install --no-cache-dir \
     boto \
     boto3
 
+RUN mkdir /root/.aws
+
 WORKDIR /workdir
