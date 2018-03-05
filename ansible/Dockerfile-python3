@@ -1,0 +1,12 @@
+FROM python:3
+SHELL ["/bin/bash", "-c"]
+RUN mkdir /workdir
+
+RUN pip install --no-cache-dir \
+            ansible \
+            boto \
+            boto3 
+
+RUN mkdir /root/.aws
+
+WORKDIR /workdir
