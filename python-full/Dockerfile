@@ -1,8 +1,8 @@
-FROM python:latest
+FROM python:3-stretch
 
 RUN mkdir /workdir
 
-RUN apt update && apt install -y vim \
+RUN apt update && apt install -y vim less \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 RUN pip install --no-cache-dir \
