@@ -1,0 +1,31 @@
+FROM python:3-alpine3.7
+
+RUN mkdir /workdir
+
+RUN apk update && apk add --no-cache \
+    linux-headers \
+    build-base \
+    gcc \
+    g++ \
+    musl-dev \
+    bash \
+    vim  \
+    less
+
+RUN pip install --no-cache-dir \
+    ipython \
+    psutil \
+    numpy==1.14.3 \
+    requests \
+    pyyaml \
+    colorama
+
+RUN apk del \
+    linux-headers \
+    build-base \
+    gcc \
+    g++ \
+    musl-dev
+
+
+WORKDIR /workdir

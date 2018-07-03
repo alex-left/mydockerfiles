@@ -1,0 +1,30 @@
+FROM python:3-alpine3.7
+
+RUN mkdir /workdir
+RUN mkdir /root/.aws
+RUN ln -s /usr/local/bin/python /usr/bin/python
+RUN apk update && apk add --no-cache \
+  musl-dev \
+  bash \
+  postgresql-dev \
+  postgresql-libs \
+  gcc libffi-dev \
+  make \
+  libssl1.0\
+  openssh-client \
+  sshpass
+
+SHELL ["/bin/bash", "-c"]
+
+RUN pip install --no-cache-dir \
+    boto \
+    boto3 \
+    docker-py \
+    mysql-connector-python \
+    psycopg2-binary
+
+RUN pip install ansible
+
+RUN apk del musl-dev postgresql-dev gcc libffi-dev make
+
+WORKDIR /workdir
