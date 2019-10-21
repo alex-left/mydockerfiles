@@ -1,0 +1,2 @@
+#!/bin/bash
+docker run --rm -it -v ${HOME}/.aws:/home/ansible/.aws:ro -v ${HOME}/.ssh:/home/ansible/.ssh:ro -v $(pwd):/workdir:ro --entrypoint ansible-playbook ansible27 "$@"
